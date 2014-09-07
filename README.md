@@ -1,6 +1,3 @@
-dotfiles
-========
-
 # Installation
 1. Clone to ~/dotfiles
 2. ln -s ~/dotfiles/gitconfig ~/.gitconfig
