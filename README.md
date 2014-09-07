@@ -2,5 +2,6 @@
 1. Clone to ~/dotfiles
 2. ln -s ~/dotfiles/gitconfig ~/.gitconfig
 3. ln -s ~/dotfiles/inputrc ~/.inputrc
+4. Put `source ~/dotfiles/bash/init.bash` to ~/.bashrc and ensure ~/.bashrc is sourced inside ~/.bash_profile
 
 TODO: Move vim config here
