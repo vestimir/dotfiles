@@ -20,7 +20,7 @@
   autosetuprebase = always
 
 [push]
-  default = simple
+  default = upstream
 
 [difftool "sourcetree"]
    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
