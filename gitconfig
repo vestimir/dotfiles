@@ -1,5 +1,6 @@
 [alias]
   s = status --short
+  aa = add .
   co = checkout
   cb = checkout -b
   undo = reset --soft HEAD^
