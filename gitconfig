@@ -1,6 +1,7 @@
 [alias]
   s = status --short
   aa = add .
+  cm = commit -m
   co = checkout
   cb = checkout -b
   undo = reset --soft HEAD^
