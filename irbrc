@@ -23,11 +23,6 @@ class Object
   end
 end
 
-def pbcopy(string)
-  `echo "#{string}" | pbcopy`
-  string
-end
-
 def load_factory_girl!
   return if defined? FactoryGirl
 
