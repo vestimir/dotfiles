@@ -17,16 +17,19 @@
 [core]
   editor=/usr/bin/vim
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  excludesfile = /Users/vestimir/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [branch]
   autosetuprebase = always
 
 [push]
-  default = upstream
+  default = tracking
 
 [diff]
   noprefix = true
 
 [credential]
   helper = osxkeychain
+
+[help]
+  autocorrect = 1
