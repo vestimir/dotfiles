@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git fetch $1
+git rebase $1/$2
+git push origin $2
