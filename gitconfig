@@ -26,6 +26,7 @@
   default = tracking
 
 [diff]
+  tool = vimdiff
   noprefix = true
 
 [credential]
@@ -33,3 +34,6 @@
 
 [help]
   autocorrect = 1
+
+[difftool]
+  prompt = false
