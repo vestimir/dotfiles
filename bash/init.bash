@@ -3,6 +3,12 @@ source ~/dotfiles/bash/git-prompt.bash
 
 export PS1='\e[1;35m[\t] \u@\h\e[00m\n\w\e[1;30m$(__git_ps1)\e[00m \$ '
 
+export CDPATH=.:~/dev/web/
+
+# go stuff
+export GOPATH="$HOME/go-workspace/"
+export PATH=$PATH:$GOPATH/bin
+
 alias ll="ls -lah"
 alias rs="rails s"
 alias rc="rails c"
