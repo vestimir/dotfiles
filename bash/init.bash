@@ -4,6 +4,9 @@ source ~/dotfiles/bash/git-prompt.bash
 export PS1='\e[1;35m[\t] \u@\h\e[00m\n\w\e[1;30m$(__git_ps1)\e[00m \$ '
 
 export CDPATH=.:~/dev/web/
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+. `brew --prefix`/etc/bash_completion
+fi
 
 # go stuff
 export GOPATH="$HOME/go-workspace/"
