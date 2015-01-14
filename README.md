@@ -4,6 +4,8 @@
 3. ln -s ~/dotfiles/inputrc ~/.inputrc
 4. ln -s ~/dotfiles/irbrc ~/.irbrc
 5. Put `source ~/dotfiles/bash/init.bash` to ~/.bashrc and ensure ~/.bashrc is sourced inside ~/.bash_profile
+6. ln -s ~/dotfiles/bash/git-sync /usr/local/bin/git-sync
+7. ln -s ~/dotfiles/bash/git-ll /usr/local/bin/git-ll
 
 # Dependencies
 
