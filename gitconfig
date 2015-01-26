@@ -23,7 +23,7 @@
   autosetuprebase = always
 
 [push]
-  default = tracking
+  default = current
 
 [diff]
   tool = vimdiff
