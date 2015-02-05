@@ -16,6 +16,7 @@ alias ll="ls -lah"
 alias rs="rails s"
 alias rc="rails c"
 alias gf="git flow"
+alias b="bundle exec"
 
 # enable grep colors
 export GREP_OPTIONS="--color=auto"
