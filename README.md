@@ -7,7 +7,8 @@
 6. ln -s ~/dotfiles/git_template ~/.git_template
 7. ln -s ~/dotfiles/bash/git-sync /usr/local/bin/git-sync
 8. ln -s ~/dotfiles/bash/git-ll /usr/local/bin/git-ll
-8. ln -s ~/dotfiles/bash/git-delete-merged /usr/local/bin/git-delete-merged
+9. ln -s ~/dotfiles/bash/git-delete-merged /usr/local/bin/git-delete-merged
+10. ln -s ~/dotfiles/phoenix.js ~/.phoenix.js
 
 # Dependencies
 
@@ -16,5 +17,6 @@
 3. bash-completion
 4. hg (for Go package install)
 5. ctags (for vim and git hooks)
+6. Phoenix window manager
 
 TODO: Move vim config here
