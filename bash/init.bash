@@ -13,8 +13,8 @@ export GOPATH="$HOME/go-workspace/"
 export PATH=$PATH:$GOPATH/bin
 
 alias ll="ls -lah"
-alias rs="rails s"
-alias rc="rails c"
+alias rs="bundle exec rails s"
+alias rc="bundle rails c"
 alias gf="git flow"
 alias b="bundle exec"
 
