@@ -17,6 +17,7 @@ alias rs="bundle exec rails s"
 alias rc="bundle rails c"
 alias gf="git flow"
 alias b="bundle exec"
+alias hl="highlight -O ansi"
 
 # enable grep colors
 export GREP_OPTIONS="--color=auto"

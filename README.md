@@ -18,5 +18,6 @@
 4. hg (for Go package install)
 5. ctags (for vim and git hooks)
 6. Phoenix window manager
+7. highlight
 
 TODO: Move vim config here
