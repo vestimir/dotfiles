@@ -18,6 +18,7 @@ alias rc="bundle rails c"
 alias gf="git flow"
 alias b="bundle exec"
 alias hl="highlight -O ansi"
+alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 
 # enable grep colors
 export GREP_OPTIONS="--color=auto"

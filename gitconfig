@@ -12,8 +12,8 @@
   last = log -1 --format=oneline --decorate
 
 [user]
-  name = Vestimir Markov
-  email = me@vestimir.com
+	name = Vestimir Markov
+	email = me@vestimir.com
 
 [core]
   editor=/usr/bin/vim
