@@ -1,0 +1,87 @@
+@import "admin/_overrides";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap-datepicker3";
+@import "admin/login";
+
+.admin {
+  padding: 50px 0;
+  background-color: #efefef;
+
+  h1, h2, h3 {
+    font-weight: normal;
+  }
+
+  .alert {
+    margin-top: 20px;
+  }
+
+  .navbar {
+    .signed-in {
+      a {
+        display: inline-block;
+        margin-left: 1em;
+      }
+    }
+  }
+
+  .btn-toolbar {
+    margin-bottom: 20px;
+  }
+
+  .page-header {
+    margin-top: 0;
+
+    h1 {
+      font-size: 190%;
+
+      a {
+        color: $navbar-default-bg;
+      }
+    }
+  }
+
+  .table {
+    a {
+      color: $navbar-default-bg;
+    }
+
+    thead {
+      th {
+        background-color: lighten($navbar-default-bg, 65%);
+      }
+    }
+
+    tbody {
+      i {
+          padding-right: 5px;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  form {
+    input[type=text], input[type=url], input[type=search], input[type=file], select, textarea {
+      width: 300px;
+    }
+
+    .date {
+      width: 150px;
+
+      input {
+        width: 120px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.login {
+    .panel, .alert {
+      width: 300px;
+      margin: 20px auto;
+    }
+  }
+}

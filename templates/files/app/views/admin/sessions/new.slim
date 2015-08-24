@@ -1,0 +1,9 @@
+.container
+  = form_tag admin_sessions_path, class: 'form-signin' do
+    h2 class="form-signin-heading" Administration
+    = label_tag :email, 'Email address', class: 'sr-only'
+    = email_field_tag :email, params[:email], placeholder: 'Email...', class: 'form-control', required: true, autofocus: true
+    = label_tag :password, 'Password', class: 'sr-only'
+    = password_field_tag :password, nil, placeholder: 'Password...', class: 'form-control', required: true
+
+    button class="btn btn-lg btn-default btn-block" type="submit" Login

@@ -1,0 +1,32 @@
+doctype html
+html class="no-js"
+  head
+    meta charset="utf-8"
+    = csrf_meta_tags
+
+    title Application Name
+
+    = stylesheet_link_tag    "admin", media: "all"
+    = javascript_include_tag "admin"
+
+  body class="admin"
+    nav class="navbar navbar-default navbar-fixed-top"
+      .container
+        = link_to 'Administration', admin_root_path, class: 'navbar-brand'
+
+        ul class="nav navbar-nav"
+          li
+            = link_to 'Dashboard', admin_root_path
+
+        p class="navbar-text navbar-right signed-in"
+          | Signed in as:&nbsp;
+          strong = current_user.email
+
+          = link_to admin_logout_path, style: 'color: white' do
+            i.glyphicon.glyphicon-logo-out
+            | Logout
+
+    .container
+      - flash.each do |type, msg|
+        = content_tag :div, msg, class: "alert alert-info"
+      = yield

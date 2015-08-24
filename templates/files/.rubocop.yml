@@ -1,0 +1,30 @@
+require: rubocop-rspec
+
+AllCops:
+ Exclude:
+   - 'db/**/*'
+   - 'log/**/*'
+   - 'bin/**/*'
+   - 'config/**/*'
+   - 'spec/spec_helper.rb'
+   - '**/Gemfile'
+   - '**/Guardfile'
+
+# Disables "Module definition is too long"
+ModuleLength:
+ Enabled: false
+
+# Disables "Line is too long"
+LineLength:
+ Enabled: false
+
+# Disables "Missing top-level class documentation comment"
+Documentation:
+ Enabled: false
+
+# Checks the style of children definitions at classes and modules
+Style/ClassAndModuleChildren:
+ EnforcedStyle: compact
+
+SpaceInsideHashLiteralBraces:
+  Enabled: false

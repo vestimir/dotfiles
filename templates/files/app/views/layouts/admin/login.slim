@@ -1,0 +1,16 @@
+doctype html
+html class="no-js"
+  head
+    meta charset="utf-8"
+    = csrf_meta_tags
+
+    title Application Name
+
+    = stylesheet_link_tag    "admin", media: "all"
+    = javascript_include_tag "admin"
+
+  body class="admin login"
+    - flash.each do |type, msg|
+      = content_tag :div, msg, class: "alert alert-info"
+
+    = yield
