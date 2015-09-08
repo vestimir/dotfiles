@@ -20,3 +20,4 @@
 6. Phoenix window manager
 7. highlight
 8. dokku client (`git clone git@github.com:progrium/dokku.git ~/.dokku`)
+9. jump (https://github.com/gsamokovarov/jump)
