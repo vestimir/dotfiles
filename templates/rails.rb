@@ -60,7 +60,7 @@ run 'guard init rspec'
 run 'rm README.rdoc'
 run 'rm app/assets/stylesheets/application.css'
 run 'rm -rf test'
-run 'cp -R ~/dotfiles/templates/files/ .'
+run 'cp -R ~/dotfiles/templates/files/* .'
 
 after_bundle do
   git :init
