@@ -14,7 +14,7 @@ export PATH=$PATH:$GOPATH/bin
 
 alias ll="ls -lah"
 alias rs="bundle exec rails s"
-alias rc="bundle rails c"
+alias rc="bundle exec rails c"
 alias gf="git flow"
 alias b="bundle exec"
 alias hl="highlight -O ansi"
