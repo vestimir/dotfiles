@@ -13,6 +13,7 @@ gem 'figaro' # For application configuration
 gem 'slim-rails' # For manageable templates
 gem 'rubocop', require: false # For keeping consistent style
 gem 'rubocop-rspec', require: false # The same, but for tests
+gem 'simple_form'
 
 gem_group :production do
   gem 'rails_12factor' # For deployment purposes
@@ -35,6 +36,7 @@ gem_group :test do
   gem 'poltergeist' # Headles browser for testing javascript-enabled pages
   gem 'launchy' # Go figure...
   gem 'rack_session_access' # For accessing the session in rspec features
+  gem 'capybara-screenshot'
 end
 
 # 2. CONFIGURATION
@@ -56,6 +58,8 @@ GENERATORS
 
 # 3. RUN COMMANDS
 run 'rails g rspec:install'
+run 'rails g simple_form:install --bootstrap'
+run 'rails g responders:install'
 run 'guard init rspec'
 run 'rm README.rdoc'
 run 'rm app/assets/stylesheets/application.css'
