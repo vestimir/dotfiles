@@ -1,5 +1,6 @@
 source ~/dotfiles/bash/git-completion.bash
 source ~/dotfiles/bash/git-prompt.bash
+source ~/dotfiles/bash/np.sh
 
 export PS1='\e[1;35m[\t] \u@\h\e[00m\n\w\e[1;30m$(__git_ps1)\e[00m \$ '
 
