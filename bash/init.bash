@@ -1,17 +1,16 @@
 source ~/dotfiles/bash/git-completion.bash
 source ~/dotfiles/bash/git-prompt.bash
 source ~/dotfiles/bash/np.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
-export PS1='\e[1;35m[\t] \u@\h\e[00m\n\w\e[1;30m$(__git_ps1)\e[00m \$ '
+export PS1='\e[1;35m[\t] 🍺 \e[00m\n\w\e[1;30m$(__git_ps1)\e[00m \$ '
 
-export CDPATH=.:~/dev/web/
 if [ -f `brew --prefix`/etc/bash_completion ]; then
 . `brew --prefix`/etc/bash_completion
 fi
 
-# go stuff
-export GOPATH="$HOME/go-workspace/"
-export PATH=$PATH:$GOPATH/bin
+export PATH="$(yarn global bin):$PATH"
 
 alias ll="ls -lah"
 alias rs="bundle exec rails s"
@@ -20,6 +19,7 @@ alias gf="git flow"
 alias b="bundle exec"
 alias hl="highlight -O ansi"
 alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
+alias fast='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 
 # enable grep colors
 export GREP_OPTIONS="--color=auto"
@@ -40,3 +40,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 eval "$(jump shell bash)"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
