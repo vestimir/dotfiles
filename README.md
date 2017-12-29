@@ -8,16 +8,14 @@
 7. ln -s ~/dotfiles/bash/git-sync /usr/local/bin/git-sync
 8. ln -s ~/dotfiles/bash/git-ll /usr/local/bin/git-ll
 9. ln -s ~/dotfiles/bash/git-delete-merged /usr/local/bin/git-delete-merged
-10. ln -s ~/dotfiles/phoenix.js ~/.phoenix.js
 
 # Dependencies
 
 1. git
-2. vim
-3. bash-completion
-4. hg (for Go package install)
-5. ctags (for vim and git hooks)
-6. Phoenix window manager
-7. highlight
-8. dokku client (`git clone git@github.com:progrium/dokku.git ~/.dokku`)
-9. jump (https://github.com/gsamokovarov/jump)
+1. vim
+1. bash-completion
+1. hg (for Go package install)
+1. ctags (for vim and git hooks)
+1. highlight
+1. dokku client (`git clone git@github.com:progrium/dokku.git ~/.dokku`)
+1. jump (https://github.com/gsamokovarov/jump)

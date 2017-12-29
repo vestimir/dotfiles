@@ -1,10 +1,8 @@
 source ~/dotfiles/bash/git-completion.bash
 source ~/dotfiles/bash/git-prompt.bash
 source ~/dotfiles/bash/np.sh
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
 
-export PS1='\e[1;35m[\t] 🍺 \e[00m\n\w\e[1;30m$(__git_ps1)\e[00m \$ '
+export PS1='\e[1;35m[\t]  \e[00m\n\w\e[1;30m$(__git_ps1)\e[00m \$ '
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
 . `brew --prefix`/etc/bash_completion
@@ -20,6 +18,10 @@ alias b="bundle exec"
 alias hl="highlight -O ansi"
 alias dokku='$HOME/.dokku/contrib/dokku_client.sh'
 alias fast='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
+alias pxs="iex -S mix phx.server"
+alias aa="git add ."
+alias cm="git cm $1"
+alias s="git s"
 
 # enable grep colors
 export GREP_OPTIONS="--color=auto"
@@ -40,6 +42,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 eval "$(jump shell bash)"
+eval "$(rbenv init -)"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
