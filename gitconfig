@@ -32,7 +32,7 @@
   noprefix = true
 
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 
 [help]
   autocorrect = 1
