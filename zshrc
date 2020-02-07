@@ -60,6 +60,10 @@ alias r="./run.sh"
 alias cbs="ruby ~/dotfiles/bash/cbs.rb"
 alias serve="python -m SimpleHTTPServer 8000"
 
+alias gc="gcloud"
+alias gproject="gcloud config set project $1"
+alias gs="gsutil"
+
 # grep options
 export GREP_OPTIONS="--color=auto"
 
@@ -72,3 +76,10 @@ eval "$(direnv hook zsh)"
 
 # Yarn
 export PATH="$(yarn global bin):$PATH"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/vestimir/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/vestimir/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/completion.zsh.inc'; fi

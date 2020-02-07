@@ -16,7 +16,7 @@ require 'date'
 
 original_file = ARGV[0]
 new_file = original_file.gsub('.csv', '_mercury.csv')
-headers = %w[date amount type reason]
+headers = %w[uid date amount type reason]
 
 def type(row)
   case row[7] # row['Тип']
@@ -55,6 +55,7 @@ csv_string = CSV.generate(headers: true) do |csv|
 
   CSV.foreach(original_file, col_sep: ',', headers: true) do |row|
     csv << {
+      'uid' => row[2],
       'date' => parse_date(row),
       'type' => type(row),
       'reason' => [row[8], row[9], row[10]].reject(&:nil?).join(' / '), # row['Описание на операцията'],
