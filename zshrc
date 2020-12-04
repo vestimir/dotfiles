@@ -59,6 +59,12 @@ alias psql="/Applications/Postgres.app/Contents/Versions/latest/bin/psql"
 alias r="./run.sh"
 alias cbs="ruby ~/dotfiles/bash/cbs.rb"
 alias serve="python -m SimpleHTTPServer 8000"
+alias k="kubectl"
+alias kpods="kubectl get pods"
+alias kpodsw="watch -n1 kubectl get pods"
+alias dc="docker-compose"
+alias dcu="docker-compose up --build"
+alias dcw="docker-compose run --rm web"
 
 alias gc="gcloud"
 alias gproject="gcloud config set project $1"
@@ -83,3 +89,8 @@ if [ -f '/Users/vestimir/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vestim
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/vestimir/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Plugins
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh

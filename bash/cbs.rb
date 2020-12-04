@@ -3,30 +3,31 @@ require 'date'
 
 # MAPPING
 # 0: Сметка
-# 1: Дата на обработка
-# 2: Референция
-# 3: Вальор!
-# 4: Сума във валута на сметката!
-# 5: Сума във валута на операцията
-# 6: Обменен курс
-# 7: Тип!
-# 8: Описание на операцията!
-# 9: Основание за плащане!
-# 10: Още пояснения!
+# 1: Дата/Час
+# 2: Дата на обработка
+# 3: Референция
+# 4: Вальор!
+# 5: Сума във валута на сметката!
+# 6: Сума във валута на операцията
+# 7: Обменен курс
+# 8: Тип!
+# 9: Описание на операцията!
+# 10: Основание за плащане!
+# 11: Още пояснения!
 
 original_file = ARGV[0]
 new_file = original_file.gsub('.csv', '_mercury.csv')
 headers = %w[uid date amount type reason]
 
 def type(row)
-  case row[7] # row['Тип']
+  case row[8] # row['Тип']
   when 'КТ' then 'in'
   when 'ДТ' then 'out'
   end
 end
 
 def parse_date(row)
-  date = row[3]  # row['Вальор']
+  date = row[4]  # row['Вальор']
 
   month_map = {
     '.01.' => ' January ',
@@ -55,11 +56,11 @@ csv_string = CSV.generate(headers: true) do |csv|
 
   CSV.foreach(original_file, col_sep: ',', headers: true) do |row|
     csv << {
-      'uid' => row[2],
+      'uid' => "#{row[3]}-#{type(row)}",
       'date' => parse_date(row),
       'type' => type(row),
-      'reason' => [row[8], row[9], row[10]].reject(&:nil?).join(' / '), # row['Описание на операцията'],
-      'amount' => row[4] # row['Сума във валута на сметката']
+      'reason' => [row[9], row[10], row[11]].reject(&:nil?).join(' / '), # row['Описание на операцията'],
+      'amount' => row[5] # row['Сума във валута на сметката']
     }
   end
 end
