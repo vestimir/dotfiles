@@ -64,7 +64,6 @@ alias kpods="kubectl get pods"
 alias kpodsw="watch -n1 kubectl get pods"
 alias dc="docker-compose"
 alias dcu="docker-compose up --build"
-alias dcw="docker-compose run --rm web"
 
 alias gc="gcloud"
 alias gproject="gcloud config set project $1"
@@ -74,14 +73,16 @@ alias gs="gsutil"
 export GREP_OPTIONS="--color=auto"
 
 # Direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # Add asdf
+fpath=(${ASDF_DIR}/completions $fpath) 
+autoload -Uz compinit && compinit
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+#. $HOME/.asdf/completions/asdf.bash
 
 # Yarn
-export PATH="$(yarn global bin):$PATH"
+# export PATH="$(yarn global bin):$PATH"
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -94,3 +95,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export PATH="/opt/homebrew/bin:$PATH"

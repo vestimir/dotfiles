@@ -6,11 +6,7 @@
   ca = commit --amend
   co = checkout
   cb = checkout -b
-  undo = reset --soft HEAD^
   lol = log --graph --decorate --pretty='format:%C(yellow)%h%Cgreen%d%Creset %s %C(white) (%an, %ar)%Creset' --abbrev-commit
-  today = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
-  files = show --name-only --oneline
-  last = log -1 --format=oneline --decorate
 
 [user]
   name = Vestimir Markov
@@ -32,7 +28,7 @@
   noprefix = true
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
 
 [help]
   autocorrect = 1
