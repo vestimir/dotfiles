@@ -64,10 +64,12 @@ alias kpods="kubectl get pods"
 alias kpodsw="watch -n1 kubectl get pods"
 alias dc="docker-compose"
 alias dcu="docker-compose up --build"
+alias drails="docker-compose exec app rails"
+alias dce="docker-compose exec"
 
 alias gc="gcloud"
 alias gproject="gcloud config set project $1"
-alias gs="gsutil"
+alias vpn-chaos="~/dotfiles/vpn/chaos/connect.sh"
 
 # grep options
 export GREP_OPTIONS="--color=auto"
@@ -81,9 +83,10 @@ autoload -Uz compinit && compinit
 . $HOME/.asdf/asdf.sh
 #. $HOME/.asdf/completions/asdf.bash
 
-# Yarn
-# export PATH="$(yarn global bin):$PATH"
-
+# PDF compress
+cpdf() {
+    gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile="$2" "$1"
+}
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/vestimir/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/path.zsh.inc'; fi
@@ -97,3 +100,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="/opt/homebrew/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
