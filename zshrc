@@ -71,6 +71,8 @@ alias gc="gcloud"
 alias gproject="gcloud config set project $1"
 alias vpn-chaos="~/dotfiles/vpn/chaos/connect.sh"
 
+alias intel="arch -x86_64"
+
 # grep options
 export GREP_OPTIONS="--color=auto"
 
