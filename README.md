@@ -6,6 +6,7 @@
 1. ln -s ~/dotfiles/zshrc ~/.zshrc
 1. ln -s ~/dotfiles/bash/git-sync /usr/local/bin/git-sync
 1. ln -s ~/dotfiles/bash/git-delete-merged /usr/local/bin/git-delete-merged
+1. ln -s ~/dotfiles/spaceship/spaceshiprc.zsh ~/.spaceshiprc.zsh
 
 # Dependencies
 
@@ -14,3 +15,5 @@
 1. asdf via git
 1. direnv via brew
 1. yarn via brew
+1. spaceship via brew
+1. powerilne fonts via brew

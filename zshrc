@@ -84,17 +84,12 @@ fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 . $HOME/.asdf/asdf.sh
 #. $HOME/.asdf/completions/asdf.bash
+autoload -Uz compinit && compinit
 
 # PDF compress
 cpdf() {
     gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile="$2" "$1"
 }
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/vestimir/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/vestimir/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -104,3 +99,26 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="/opt/homebrew/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# bun completions
+[ -s "/Users/vestimir/.bun/_bun" ] && source "/Users/vestimir/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+source ~/dotfiles/secrets.sh
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/vestimir/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/vestimir/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vestimir/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Add cargo binaries to PATH
+export PATH="/Users/vestimir/.cargo/bin:$PATH"
+export PATH=$PATH:$(go env GOPATH)/bin
+
+source /opt/homebrew/opt/spaceship/spaceship.zsh

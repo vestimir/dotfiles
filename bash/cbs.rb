@@ -1,70 +1,60 @@
-require 'csv'
+require 'bundler/setup'
+require 'nokogiri'
 require 'date'
-
-# MAPPING
-# 0: Сметка
-# 1: Дата/Час
-# 2: Дата на обработка
-# 3: Референция
-# 4: Вальор!
-# 5: Сума във валута на сметката!
-# 6: Сума във валута на операцията
-# 7: Обменен курс
-# 8: Тип!
-# 9: Описание на операцията!
-# 10: Основание за плащане!
-# 11: Още пояснения!
+require 'csv'
 
 original_file = ARGV[0]
-new_file = original_file.gsub('.csv', '_mercury.csv')
+
+TYPES = {
+  Credit: 'in',
+  Debit: 'out'
+}.freeze
+
 headers = %w[uid date amount type reason]
 
-def type(row)
-  case row[8] # row['Тип']
-  when 'КТ' then 'in'
-  when 'ДТ' then 'out'
-  end
-end
+xml = Nokogiri::XML(File.open(original_file))
 
-def parse_date(row)
-  date = row[4]  # row['Вальор']
+formatted = xml.xpath('//AccountMovement').map do |movement|
+  type = TYPES[movement.xpath('./MovementType').first.text.to_sym]
 
-  month_map = {
-    '.01.' => ' January ',
-    '.02.' => ' February ',
-    '.03.' => ' March ',
-    '.04.' => ' April ',
-    '.05.' => ' May ',
-    '.06.' => ' June ',
-    '.07.' => ' July ',
-    '.08.' => ' August ',
-    '.09.' => ' September ',
-    '.10.' => ' October ',
-    '.11.' => ' November ',
-    '.12.' => ' December ',
+  {
+    account: movement.xpath('./Account/ShortName').first.text,
+    uid: [movement.xpath('./DocumentReference').first.text, type].join('-'),
+    date: Date.parse(movement.xpath('./ValueDate').first.text),
+    amount: movement.xpath('./Amount').first.text,
+    type:,
+    reason: [
+      movement.xpath('./Reason').first.text,
+      movement.xpath('./ReasonI02').first.text,
+      movement.xpath('./Narrative').first.text,
+      movement.xpath('./NarrativeI02').first.text
+    ].reject(&:empty?).join(' / ')
   }
-
-  month_map.each do |om, nm|
-    date = date.gsub(om, nm)
-  end
-
-  Date.parse(date).iso8601
 end
 
-csv_string = CSV.generate(headers: true) do |csv|
-  csv << headers
-
-  CSV.foreach(original_file, col_sep: ',', headers: true) do |row|
-    csv << {
-      'uid' => "#{row[3]}-#{type(row)}",
-      'date' => parse_date(row),
-      'type' => type(row),
-      'reason' => [row[9], row[10], row[11]].reject(&:nil?).join(' / '), # row['Описание на операцията'],
-      'amount' => row[5] # row['Сума във валута на сметката']
-    }
-  end
+files = formatted.each_with_object({}) do |row, hsh|
+  hsh[row[:account]] = [] unless hsh[row[:account]]
+  hsh[row[:account]] << row
 end
 
-File.open(new_file, 'w') do |f|
-  f.write(csv_string)
+files.each do |account, operations|
+  new_file = "#{Date.today.to_s.gsub('-', '')}_#{account}_mercury.csv"
+
+  csv_string = CSV.generate(headers: true) do |csv|
+    csv << headers
+
+    operations.each do |row|
+      csv << {
+        'uid' => row[:uid],
+        'date' => row[:date],
+        'type' => row[:type],
+        'reason' => row[:reason],
+        'amount' => row[:amount]
+      }
+    end
+  end
+
+  File.open(new_file, 'w') do |f|
+    f.write(csv_string)
+  end
 end
