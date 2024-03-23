@@ -12,7 +12,15 @@ spaceship remove package
 spaceship remove ruby
 spaceship remove node
 spaceship remove elixir
-spaceship remove go
+spaceship remove golang
+spaceship remove rust
+spaceship remove php
+spaceship remove python
+spaceship remove perl
+spaceship remove lua
+spaceship remove deno
+spaceship remove bun
+spaceship remove docker
 
 source ~/dotfiles/spaceship/sections/git_last_tag.zsh
 spaceship add git_tag

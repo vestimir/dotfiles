@@ -17,3 +17,4 @@
 1. yarn via brew
 1. spaceship via brew
 1. powerilne fonts via brew
+1. difftastic fonts via brew

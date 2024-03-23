@@ -24,8 +24,18 @@
   default = current
 
 [diff]
-  tool = vimdiff
+  external = difft
+  tool = difftastic
   noprefix = true
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
 
 [credential]
   helper = osxkeychain
