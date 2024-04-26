@@ -11,10 +11,7 @@
 # Dependencies
 
 1. brew
-1. git via brew
 1. asdf via git
 1. direnv via brew
-1. yarn via brew
 1. spaceship via brew
-1. powerilne fonts via brew
-1. difftastic fonts via brew
+1. difftastic via brew
