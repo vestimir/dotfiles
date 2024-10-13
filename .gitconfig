@@ -1,0 +1,50 @@
+[alias]
+  s = status --short
+  aa = add .
+  c = commit
+  cm = commit -m
+  ca = commit --amend
+  co = checkout
+  cb = checkout -b
+  lol = log --graph --decorate --pretty='format:%C(yellow)%h%Cgreen%d%Creset %s %C(white) (%an, %ar)%Creset' --abbrev-commit
+
+[user]
+  name = Vestimir Markov
+  email = me@vestimir.com
+	signingkey = 81B5357B23AE654C
+
+[core]
+  editor=/usr/bin/vim
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = ~/.gitignore_global
+
+[branch]
+  autosetuprebase = always
+
+[push]
+  default = current
+
+[diff]
+  external = difft
+  tool = difftastic
+  noprefix = true
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
+
+[credential]
+  helper = osxkeychain
+
+[help]
+  autocorrect = 1
+
+[difftool]
+  prompt = false
+[commit]
+	gpgsign = true
