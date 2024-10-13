@@ -22,4 +22,7 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
+setup.sh
 secrets.sh
+bin/*
+
