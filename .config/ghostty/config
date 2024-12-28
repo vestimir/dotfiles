@@ -1,0 +1,11 @@
+font-family = "Monaco"
+font-size= 15
+background-opacity = 0.97
+window-padding-x = 8
+window-padding-y = 4
+macos-titlebar-style = "tabs"
+macos-option-as-alt = true
+theme = "tokyonight"
+confirm-close-surface = false
+mouse-hide-while-typing = true
+

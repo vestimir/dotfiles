@@ -170,6 +170,13 @@ require('lazy').setup({
     lazy = false,
   },
 
+  {
+    'David-Kunz/gen.nvim',
+    opts = {
+      model = 'llama3.2:latest',
+    },
+  },
+
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
@@ -390,6 +397,13 @@ require('lazy').setup({
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
@@ -925,7 +939,8 @@ vim.cmd [[
 -- Map <ESC> to jj
 vim.keymap.set('i', 'jj', '<ESC>', { silent = true, desc = 'Map <ESC> to jj' })
 
--- Add plugin for managing different cases
+-- Add keymap to invoke AI modal
+vim.keymap.set({ 'n', 'v' }, '<leader>]', ':Gen<CR>')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
